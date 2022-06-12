@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "customer-portal": "apps/customer-portal",
+    "customer-portal-e2e": "apps/customer-portal-e2e",
+    "enterprise-app": "apps/enterprise-app",
+    "enterprise-app-e2e": "apps/enterprise-app-e2e"
+  }
+}
