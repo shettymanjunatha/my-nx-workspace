@@ -5,11 +5,14 @@ import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
 
+import { authRoutes, AuthModule } from "@my-workspace/auth"
+
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot([{path: 'auth', children: authRoutes}], {  }),
+    AuthModule     // added
   ],
   providers: [],
   bootstrap: [AppComponent],
