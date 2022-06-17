@@ -8,6 +8,7 @@
     "data-models": "libs/data-models",
     "enterprise-app": "apps/enterprise-app",
     "enterprise-app-e2e": "apps/enterprise-app-e2e",
+    "layout": "libs/layout",
     "material": "libs/material"
   }
 }

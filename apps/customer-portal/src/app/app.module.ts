@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { authRoutes, AuthModule } from "@my-workspace/auth"
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';   // Added
+import { LayoutModule } from '@my-workspace/layout';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -15,7 +16,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';   
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([{path: 'auth', children: authRoutes}], {  }),
-    AuthModule     // added
+    AuthModule,     // added
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],
