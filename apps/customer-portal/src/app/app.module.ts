@@ -5,9 +5,9 @@ import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
 
-import { authRoutes, AuthModule } from "@my-workspace/auth"
+import { authRoutes, AuthModule, AuthGuard } from '@my-workspace/auth';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';   // Added
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Added
 import { LayoutModule } from '@my-workspace/layout';
 
 @NgModule({
@@ -15,9 +15,25 @@ import { LayoutModule } from '@my-workspace/layout';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([{path: 'auth', children: authRoutes}], {  }),
-    AuthModule,     // added
-    LayoutModule
+    RouterModule.forRoot(
+      [
+        { path: '', pathMatch: 'full', redirectTo: 'products' },
+        { path: 'auth', children: authRoutes },
+        {
+          path: 'products',
+          loadChildren: () =>
+            import('@my-workspace/products').then(
+              (module) => module.ProductsModule
+            ),
+          canActivate: [AuthGuard],      // added
+        },
+      ],
+      {
+       // initialNavigation: 'enabled',
+      }
+    ),
+    AuthModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

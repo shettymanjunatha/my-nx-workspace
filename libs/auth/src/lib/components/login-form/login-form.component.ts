@@ -24,13 +24,10 @@ export class LoginFormComponent implements OnInit {
 
 
   login() {
-    console.log("login", {
-      username: this.loginForm.value.username,
-      password: this.loginForm.value.password
-    } as Authenticate)
     this.submitForm.emit({
       username: this.loginForm.value.username,
       password: this.loginForm.value.password
     } as Authenticate);
   }
+
 }
